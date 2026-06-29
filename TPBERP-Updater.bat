@@ -27,8 +27,6 @@ call :DownloadFile "bcapp.pbd" "%GITHUB_TPBERP%"
 echo.
 call :DownloadFile "bcact.pbd" "%GITHUB_TPBERP%"
 echo.
-call :DownloadFile "custom.pbd" "%GITHUB_TPBERP%"
-echo.
 call :DownloadFile "bc2faktur.pbd" "%GITHUB_TPBERP%"
 echo.
 call :DownloadFile "ceisa.pbd" "%GITHUB_INHOST%"
@@ -54,9 +52,6 @@ if exist "%FILENAME%.etag" (
 if "%HTTP_STATUS%"=="304" (
     echo      -^> Sudah Up to Date
 ) else (
-    curl.exe -# --etag-save "%FILENAME%.etag" -L -O "%REPO_URL%/%FILENAME%"
-    if %errorlevel% neq 0 (
-        echo      [x] Gagal mendownload %FILENAME%. Silakan cek koneksi internet!
-    )
+    curl.exe -# --etag-save "%FILENAME%.etag" -L -O "%REPO_URL%/%FILENAME%" ^|^| echo      [x] Gagal mendownload %FILENAME%. Silakan cek koneksi internet!
 )
 exit /b
