@@ -11,7 +11,6 @@ Repository ini khusus didedikasikan untuk menyimpan dan mendistribusikan *compil
 - `bcapp.pbd` - Library utama sistem
 - `bcact.pbd` - Library sistem accounting
 - `bc2faktur.pbd` - Library e-Faktur
-- `custom.pbd` - Library modul kustom
 - `TPBERP-Updater.bat` - **Script Auto-Updater untuk Klien**
 
 ---
