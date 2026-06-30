@@ -68,7 +68,7 @@ if exist "%FILENAME%.etag" (
 )
 
 if "%HTTP_STATUS%"=="304" (
-    echo      %GREEN%Status:%RESET% %DIM%Tidak ada perubahan (Sudah Up to Date).%RESET%
+    echo      %GREEN%Status:%RESET% %DIM%Tidak ada perubahan - Sudah Up to Date.%RESET%
 ) else (
     echo      %YELLOW%Status:%RESET% %CYAN%Mendownload versi terbaru...%RESET%
     curl.exe -# --etag-save "%FILENAME%.etag" -L -O "%REPO_URL%/%FILENAME%" || (
