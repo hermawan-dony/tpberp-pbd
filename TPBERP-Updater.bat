@@ -71,8 +71,9 @@ if "%HTTP_STATUS%"=="304" (
     echo      %GREEN%Status:%RESET% %DIM%Tidak ada perubahan - Sudah Up to Date.%RESET%
 ) else (
     echo      %YELLOW%Status:%RESET% %CYAN%Mendownload versi terbaru...%RESET%
-    curl.exe -# --etag-save "%FILENAME%.etag" -L -O "%REPO_URL%/%FILENAME%" || (
+    curl.exe -# --retry 3 -f --etag-save "%FILENAME%.etag" -L -O "%REPO_URL%/%FILENAME%" || (
         echo      %RED%[ERROR]%RESET% %YELLOW%Gagal mendownload %FILENAME%. Periksa koneksi internet!%RESET%
+        if exist "%FILENAME%" del /f /q "%FILENAME%" >nul 2>&1
     )
 )
 echo.
