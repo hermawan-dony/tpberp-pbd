@@ -52,6 +52,6 @@ if exist "%FILENAME%.etag" (
 if "%HTTP_STATUS%"=="304" (
     echo      -^> Sudah Up to Date
 ) else (
-    curl.exe -# --etag-save "%FILENAME%.etag" -L -O "%REPO_URL%/%FILENAME%" ^|^| echo      [x] Gagal mendownload %FILENAME%. Silakan cek koneksi internet!
+    curl.exe -# --etag-save "%FILENAME%.etag" -L -O "%REPO_URL%/%FILENAME%" || echo      [x] Gagal mendownload %FILENAME%. Silakan cek koneksi internet!
 )
 exit /b
