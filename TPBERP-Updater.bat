@@ -32,11 +32,9 @@ echo.
 
 echo  %YELLOW%[*]%RESET% Menyiapkan Environtment...
 echo  %YELLOW%[*]%RESET% Menutup aplikasi TPBERP yang sedang berjalan %DIM%(Safe Mode)%RESET%...
-for %%F in ("%~dp0*.exe") do (
-    taskkill /IM "%%~nxF" /F >nul 2>&1
-)
+taskkill /IM "tpberp*.exe" /F >nul 2>&1
 :: small delay
-ping 127.0.0.1 -n 2 >nul
+timeout /t 2 /nobreak >nul
 echo  %GREEN%[OK]%RESET% Lingkungan aman.
 echo.
 echo  %CYAN%--------------------------------------------------------------------------------%RESET%
